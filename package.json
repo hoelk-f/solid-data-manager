@@ -1,0 +1,78 @@
+{
+  "name": "solid-data-manager",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.0.0",
+    "@fortawesome/free-regular-svg-icons": "^7.0.0",
+    "@fortawesome/free-solid-svg-icons": "^7.0.0",
+    "@fortawesome/react-fontawesome": "^0.2.3",
+    "@inrupt/solid-client": "^2.1.2",
+    "@inrupt/solid-client-authn-browser": "^3.1.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@babel/preset-react": "^7.24.7",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-node-resolve": "^15.3.1",
+    "postcss": "^8.4.49",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "rollup": "^4.24.0",
+    "rollup-plugin-postcss": "^4.0.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build:app": "react-scripts build",
+    "build:lib": "rollup -c rollup.config.cjs && node scripts/write-dist-package.cjs",
+    "build:lib:watch": "rollup -c rollup.config.cjs -w",
+    "build": "npm run build:app && npm run build:lib",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "main": "./dist/embed/index.cjs",
+  "module": "./dist/embed/index.js",
+  "exports": {
+    "./embed": {
+      "import": "./dist/embed/index.js",
+      "require": "./dist/embed/index.cjs"
+    },
+    "./embed.css": "./dist/embed/embed.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "peerDependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
