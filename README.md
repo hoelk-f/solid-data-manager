@@ -12,7 +12,9 @@ Solid Data Manager is a standalone React application for managing files in a Sol
 
 ## Installation (Docker)
 
-Build and run the container:
+### Production
+
+Build and run the production container:
 
 ```bash
 docker compose up --build
@@ -20,18 +22,18 @@ docker compose up --build
 
 The app is served on port `3002` by default and is reachable at `http://localhost:3002`.
 
+### Development
+
+Run the dev container with live code mounting:
+
+```bash
+docker compose -f docker-compose.dev.yaml up --build
+```
+
 ### Configuration
 
-The Docker Compose setup defines these environment variables:
-
-- `REACT_APP_OIDC_ISSUER` (default: `https://solidcommunity.net`)
-- `REACT_APP_REDIRECT_URL` (default: `http://localhost`)
-- `REACT_APP_FOOTER_LOGOS` (default: `/Logo_TMDT.png`)
-- `REACT_APP_VERSION` (default: `0.1.0`)
-- `PORT` (default: `3002`)
-- `FRONTEND_PORT` (default: `3002`)
-
-For image builds you can also set `PUBLIC_URL` (default: `/solid-data-manager`).
+- `FRONTEND_PORT` (default: `3002`) controls the host port mapped to the container.
+- For production image builds you can also set `PUBLIC_URL` (default: `/solid-data-manager`).
 
 ## Embedding
 
@@ -52,3 +54,7 @@ setSession(session);
 
 <DataManagerEmbed webId={webId} />;
 ```
+
+## Acknowledgements
+
+This work has been supported as part of the research project _Gesundes Tal_ in collaboration with the city of Wuppertal, funded by the Federal Ministry of Housing, Urban Development and Building (BMWSB) and the Reconstruction Loan Corporation (KfW) through the funding program “Modellprojekte Smart Cities: Stadtentwicklung und Digitalisierung” (grant number 19454890).

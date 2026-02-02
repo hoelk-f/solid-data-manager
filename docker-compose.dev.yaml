@@ -1,0 +1,15 @@
+services:
+  frontend:
+    image: node:18-alpine
+    container_name: solid_data_manager_dev
+    working_dir: /app
+    command: sh -c "npm install && npm start"
+    volumes:
+      - ./:/app:delegated
+      - /app/node_modules
+    environment:
+      - PORT=3002
+    stdin_open: true
+    tty: true
+    ports:
+      - "${FRONTEND_PORT:-3002}:3002"
