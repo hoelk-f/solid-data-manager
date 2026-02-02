@@ -29,6 +29,8 @@ import {
   faChevronRight,
   faEye,
   faCopy,
+  faRightFromBracket,
+  faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 import "./DataManager.css";
 import CreateFolderModal from "./CreateFolderModal";
@@ -97,14 +99,38 @@ function getItemType(item) {
   return ext.toUpperCase();
 }
 
-function TopHeader() {
+function TopHeader({ headerUser, onLogout }) {
+  const showUser = headerUser && onLogout;
+  const podLabel = headerUser?.webId || headerUser?.podHost || "Pod";
+  const displayName = headerUser?.name || "Solid Pod User";
   return (
     <div className="toolbar toolbar--title">
       <div className="crumb">
         <FontAwesomeIcon icon={faFolder} className="crumb-icon" />
-        <span>Data Manager</span>
+        <span>Solid <span className="crumb-highlight">Data</span> Manager</span>
       </div>
-      <div />
+      {showUser ? (
+        <div className="toolbar-user">
+          <div className="toolbar-user-info">
+            {headerUser.avatarUrl ? (
+              <div className="toolbar-user-avatar">
+                <img src={headerUser.avatarUrl} alt="Profile" />
+              </div>
+            ) : null}
+            <div className="toolbar-user-meta">
+              <span className="toolbar-user-name">
+                {displayName} ({podLabel})
+              </span>
+            </div>
+          </div>
+          <button className="toolbar-logout" type="button" onClick={onLogout}>
+            <FontAwesomeIcon icon={faRightFromBracket} />
+            <span>Logout</span>
+          </button>
+        </div>
+      ) : (
+        <div />
+      )}
     </div>
   );
 }
@@ -211,6 +237,9 @@ function FilesView({
               value={searchQuery}
               onChange={(e) => onSearchQueryChange(e.target.value)}
             />
+            <span className="data-search-icon" aria-hidden="true">
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </span>
           </div>
         </div>
       </div>
@@ -288,7 +317,7 @@ function FilesView({
   );
 }
 
-export default function DataManager({ webId }) {
+export default function DataManager({ webId, headerUser, onLogout }) {
   const [currentUrl, setCurrentUrl] = useState("");
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -809,7 +838,7 @@ export default function DataManager({ webId }) {
 
   return (
     <>
-      <TopHeader />
+      <TopHeader headerUser={headerUser} onLogout={onLogout} />
       <div className="data-manager-layout">
         <div className="data-manager-main">
           <FilesView
