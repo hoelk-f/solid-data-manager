@@ -2,6 +2,8 @@
 
 ![Solid Data Manager](1.png)
 
+Testinstanz: https://solid-data-manager.tmdt.info
+
 Solid Data Manager is a standalone React application for managing files in a Solid Pod. It provides a simple UI for browsing, uploading, downloading, and organizing resources in a Pod, and can also be embedded as a library in other applications.
 
 ## Features
