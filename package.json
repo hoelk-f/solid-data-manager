@@ -1,5 +1,5 @@
 {
-  "name": "solid-data-manager",
+  "name": "@hoelk-f/solid-data-manager",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -34,6 +34,7 @@
     "build:lib": "rollup -c rollup.config.cjs && node scripts/write-dist-package.cjs",
     "build:lib:watch": "rollup -c rollup.config.cjs -w",
     "build": "npm run build:app && npm run build:lib",
+    "prepublishOnly": "npm run build:lib",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -49,6 +50,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "sideEffects": [
     "**/*.css"
   ],
