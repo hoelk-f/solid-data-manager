@@ -314,6 +314,10 @@ body {
   box-shadow: 0 -10px 30px rgba(15, 23, 42, 0.08);
 }
 
+.footer-bar--compact {
+  justify-content: center;
+}
+
 .footer-logo-group {
   display: flex;
   gap: 40px;
@@ -334,6 +338,10 @@ body {
   font-size: 16px;
   font-weight: 500;
   color: var(--muted);
+}
+
+.footer-bar--compact .footer-version {
+  position: static;
 }
 
 .footer-spacer {
