@@ -1,5 +1,5 @@
 import React from "react";
-import pkg from "../../package.json";
+import { appVersion } from "../version";
 
 const FooterBar = ({ showLogos = true }) => {
   return (
@@ -19,7 +19,7 @@ const FooterBar = ({ showLogos = true }) => {
         </div>
       )}
 
-      <div className="footer-version">Solid Data Manager {pkg.version}</div>
+      <div className="footer-version">Solid Data Manager {appVersion}</div>
     </footer>
   );
 };
