@@ -1,4 +1,5 @@
 import React from "react";
+import "./FooterBar.css";
 import { appVersion } from "../version";
 
 const FooterBar = ({ showLogos = true }) => {
