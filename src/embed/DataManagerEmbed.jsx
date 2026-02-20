@@ -6,8 +6,7 @@ export default function DataManagerEmbed({ webId }) {
   return (
     <>
       <DataManager webId={webId} />
-      <div className="footer-spacer" />
-      <FooterBar showLogos={false} />
+      <div className="footer-spacer footer-spacer--compact" />
     </>
   );
 }

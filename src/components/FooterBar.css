@@ -46,3 +46,7 @@
 .footer-spacer {
   height: 80px;
 }
+
+.footer-spacer--compact {
+  height: 24px;
+}
