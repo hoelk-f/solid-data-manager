@@ -1,4 +1,4 @@
-﻿# Solid Data Manager
+# Solid Data Manager
 
 ![Solid Data Manager](1.png)
 
@@ -62,3 +62,12 @@ setSession(session);
 ## Acknowledgements
 
 This work has been supported as part of the research project _Gesundes Tal_ in collaboration with the city of Wuppertal, funded by the Federal Ministry of Housing, Urban Development and Building (BMWSB) and the Reconstruction Loan Corporation (KfW) through the funding program “Modellprojekte Smart Cities: Stadtentwicklung und Digitalisierung” (grant number 19454890).
+
+## License
+
+This project is licensed under the Apache License 2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
+
+
+## Citation
+
+If you use this repository, please cite it using the metadata in [CITATION.cff](CITATION.cff).
