@@ -38,6 +38,7 @@ import ShareFileModal from "./ShareFileModal";
 import RenameItemModal from "./RenameItemModal";
 import AlertModal from "./AlertModal";
 import ConfirmModal from "./ConfirmModal";
+import { appVersion } from "../version";
 
 const noCacheFetch = (input, init = {}) =>
   session.fetch(input, {
@@ -109,28 +110,29 @@ function TopHeader({ headerUser, onLogout }) {
         <FontAwesomeIcon icon={faFolder} className="crumb-icon" />
         <span>Solid <span className="crumb-highlight">Data</span> Manager</span>
       </div>
-      {showUser ? (
-        <div className="toolbar-user">
-          <div className="toolbar-user-info">
-            {headerUser.avatarUrl ? (
-              <div className="toolbar-user-avatar">
-                <img src={headerUser.avatarUrl} alt="Profile" />
+      <div className="toolbar-title-right">
+        {showUser ? (
+          <div className="toolbar-user">
+            <div className="toolbar-user-info">
+              {headerUser.avatarUrl ? (
+                <div className="toolbar-user-avatar">
+                  <img src={headerUser.avatarUrl} alt="Profile" />
+                </div>
+              ) : null}
+              <div className="toolbar-user-meta">
+                <span className="toolbar-user-name">
+                  {displayName} ({podLabel})
+                </span>
               </div>
-            ) : null}
-            <div className="toolbar-user-meta">
-              <span className="toolbar-user-name">
-                {displayName} ({podLabel})
-              </span>
             </div>
+            <button className="toolbar-logout" type="button" onClick={onLogout}>
+              <FontAwesomeIcon icon={faRightFromBracket} />
+              <span>Logout</span>
+            </button>
           </div>
-          <button className="toolbar-logout" type="button" onClick={onLogout}>
-            <FontAwesomeIcon icon={faRightFromBracket} />
-            <span>Logout</span>
-          </button>
-        </div>
-      ) : (
-        <div />
-      )}
+        ) : null}
+        <span className="toolbar-version">{appVersion}</span>
+      </div>
     </div>
   );
 }

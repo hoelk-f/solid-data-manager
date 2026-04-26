@@ -54,6 +54,27 @@ body {
   gap: 12px;
 }
 
+.toolbar-title-right {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  min-width: 0;
+}
+
+.toolbar-version {
+  flex: 0 0 auto;
+  color: rgba(248, 250, 252, 0.9);
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
 .toolbar--title .crumb {
   font-size: 1rem;
   line-height: 1.2;
@@ -294,6 +315,11 @@ body {
   }
 
   .toolbar-user {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .toolbar-title-right {
     width: 100%;
     justify-content: space-between;
   }

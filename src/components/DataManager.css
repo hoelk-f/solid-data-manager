@@ -39,6 +39,27 @@
   color: #0f172a;
 }
 
+.toolbar-title-right {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  min-width: 0;
+}
+
+.toolbar-version {
+  flex: 0 0 auto;
+  color: rgba(248, 250, 252, 0.9);
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
 .data-manager-main .primary-actions {
   display: flex;
   align-items: center;
@@ -311,4 +332,11 @@
   background: #ffffff;
   border-top: 1px solid #eef2f7;
   padding: 1rem 0.9rem;
+}
+
+@media (max-width: 720px) {
+  .toolbar-title-right {
+    width: 100%;
+    justify-content: space-between;
+  }
 }

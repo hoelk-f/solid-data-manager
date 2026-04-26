@@ -1,6 +1,5 @@
 import React from "react";
 import "./FooterBar.css";
-import { appVersion } from "../version";
 
 const FooterBar = ({ showLogos = true }) => {
   return (
@@ -20,7 +19,6 @@ const FooterBar = ({ showLogos = true }) => {
         </div>
       )}
 
-      <div className="footer-version">Solid Data Manager {appVersion}</div>
     </footer>
   );
 };
