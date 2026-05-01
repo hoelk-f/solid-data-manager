@@ -1,8 +1,30 @@
 import { Session } from "@inrupt/solid-client-authn-browser";
 
+const STORAGE_PREFIX = "solid-data-manager:";
+const storageKey = (key) => `${STORAGE_PREFIX}${key}`;
+
+const sessionStorageWrapper = {
+  get: async (key) =>
+    typeof window === "undefined"
+      ? undefined
+      : window.sessionStorage.getItem(storageKey(key)) ?? undefined,
+  set: async (key, value) => {
+    if (typeof window !== "undefined") {
+      window.sessionStorage.setItem(storageKey(key), value);
+    }
+  },
+  delete: async (key) => {
+    if (typeof window !== "undefined") {
+      window.sessionStorage.removeItem(storageKey(key));
+    }
+  },
+};
+
 let currentSession = new Session({
   clientName: "Solid Data Manager",
   sessionId: "data-manager",
+  secureStorage: sessionStorageWrapper,
+  insecureStorage: sessionStorageWrapper,
 });
 
 const session = {

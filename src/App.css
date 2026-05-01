@@ -25,6 +25,12 @@ body {
   color: var(--text);
 }
 
+@media (min-width: 900px) {
+  body {
+    zoom: 0.7;
+  }
+}
+
 .container {
   max-width: none;
   margin: 0;

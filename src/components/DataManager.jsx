@@ -102,6 +102,7 @@ function getItemType(item) {
 
 function TopHeader({ headerUser, onLogout }) {
   const showUser = headerUser && onLogout;
+  const showHeaderVersion = !showUser;
   const podLabel = headerUser?.webId || headerUser?.podHost || "Pod";
   const displayName = headerUser?.name || "Solid Pod User";
   return (
@@ -131,7 +132,7 @@ function TopHeader({ headerUser, onLogout }) {
             </button>
           </div>
         ) : null}
-        <span className="toolbar-version">{appVersion}</span>
+        {showHeaderVersion && <span className="toolbar-version">{appVersion}</span>}
       </div>
     </div>
   );
